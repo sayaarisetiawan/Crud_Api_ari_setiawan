@@ -25,7 +25,7 @@ class DataAdapter(val data: List<DataItem>? , private val click: onClickItem) :
     override fun getItemCount() = data?.size ?: 0
     override fun onBindViewHolder(holder: MyHolder, position: Int) {
         holder.onBind(data?.get(position))
-        binding.tvName.setOnClickListener() {
+        binding.tvName.setOnClickListener {
             click.clicked(data?.get(position))
         }
         binding.btnHapus.setOnClickListener {
