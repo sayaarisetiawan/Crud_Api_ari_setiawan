@@ -21,7 +21,7 @@ object NetworkConfig {
     //Retrofit
     private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http:/192.168.64.201/server_api/index.php/ServerApi/")
+            .baseUrl("http:/192.168.0.201/server_api/index.php/ServerApi/")
             .client(getInterceptor())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
@@ -34,6 +34,8 @@ interface StaffService{
     @FormUrlEncoded
     @POST("addStaff")
     fun addStaff(@Field("name") name : String,
+                 @Field("jenis_kelamin") jenis_kelamin : String,
+                 @Field("program_studi") program_studi : String,
                  @Field("hp") hp : String,
                  @Field("alamat") alamat : String) : Call<ResultStatus>
     //Fungsi Get Data
@@ -48,6 +50,8 @@ interface StaffService{
     @POST("updateStaff")
     fun updateStaff(@Field("id") id: String,
                     @Field("name") name: String,
+                    @Field("jenis_kelamin") jenis_kelamin : String,
+                    @Field("program_studi") program_studi: String,
                     @Field("hp") hp : String,
                     @Field("alamat") alamat : String) : Call<ResultStatus>
 }

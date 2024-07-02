@@ -22,6 +22,8 @@ class UpdateAddActivity : AppCompatActivity(), CrudView {
             binding.btnAction.setOnClickListener {
                 presenter.addData(
                     binding.etName.text.toString(),
+                    binding.etJenisKelamin.text.toString(),
+                    binding.etProgramStudi.text.toString(),
                     binding.etPhone.text.toString(),
                     binding.etAlamat.text.toString())
             }
@@ -29,12 +31,16 @@ class UpdateAddActivity : AppCompatActivity(), CrudView {
             binding.btnAction.text = "Update"
             val item = itemDataItem as DataItem?
             binding.etName.setText(item?.staffName.toString())
+            binding.etJenisKelamin.setText(item?.staffJenisKelamin.toString())
+            binding.etProgramStudi.setText(item?.staffProgamStudi.toString())
             binding.etPhone.setText(item?.staffHp.toString())
             binding.etAlamat.setText(item?.staffAlamat.toString())
             binding.btnAction.setOnClickListener {
                 presenter.updateData(
                     item?.staffId ?: "",
                     binding.etName.text.toString(),
+                    binding.etJenisKelamin.text.toString(),
+                    binding.etProgramStudi.text.toString(),
                     binding.etPhone.text.toString(),
                     binding.etAlamat.text.toString())
                 finish()
